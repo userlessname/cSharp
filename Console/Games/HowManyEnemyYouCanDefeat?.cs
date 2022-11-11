@@ -44,7 +44,8 @@ namespace ca1
                         health -= damageAmount;
                         if (health <= 0) { break; }
 
-                        healAmount = new Random().Next(1, 50);
+                        if (health < 50) { healAmount = new Random().Next(30, 50); }
+                        else { healAmount = new Random().Next(1, 50); }
                         health += healAmount;
                         if (health > 100) { health = 100; }
                         Console.WriteLine($"You healed yourself and gained {healAmount} health!");
